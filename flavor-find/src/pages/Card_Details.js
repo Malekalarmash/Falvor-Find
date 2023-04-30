@@ -7,14 +7,14 @@ import { Grid } from '@mantine/core';
 
 
 export default function Card_Details() {
-    const isClicked = useSelector((state) => {
-        return state.recipeFilter.isClicked
+    const IsClicked = useSelector((state) => {
+        return state.recipeFilter
     })
-    console.log(isClicked)
+
 
     return (
 
-        isClicked === true ? ((recipe) => <RecipeCard recipe={recipe} />) : console.log('Not Clicked')
+        <RecipeCard recipe={recipe} />
 
     )
 }

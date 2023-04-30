@@ -6,9 +6,11 @@ import { setFavorit, addedToCart, setPrice } from '../redux/actions';
 
 export default function CartTable({ recipe }) {
     const dispatch = useDispatch()
+    const price = Math.floor(recipe.calories / 100)
+
 
     const elements = [
-        { position: recipe.label, price: recipe.price, symbol: '', name: '' }
+        { position: recipe.label, price: price, symbol: '', name: '' }
     ];
     console.log(elements)
     const rows = elements.map((element) => (

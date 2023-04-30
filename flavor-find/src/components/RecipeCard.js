@@ -9,11 +9,14 @@ import { setFavorit, addedToCart, setPrice, IsClicked } from '../redux/actions';
 
 export default function RecipeCard({ recipe }) {
     const dispatch = useDispatch()
+    const price = Math.floor(recipe.calories / 100)
+    console.log(price)
+
 
 
     return (
         <Card margin="20px" shadow="sm" padding="sm" radius="sm" withBorder >
-            <Card.Section component="a" href="#">
+            <Card.Section component="a" href="/Card_Details">
                 <Image
                     src={recipe.image}
                     height={160}
@@ -25,7 +28,7 @@ export default function RecipeCard({ recipe }) {
             <Group position="apart" mt="md" mb="xs">
                 <Text weight={500}>{recipe.label}</Text>
                 <Badge color="pink" variant="light">
-                    {recipe.price}
+                    price: $ {price}
                 </Badge>
             </Group>
 

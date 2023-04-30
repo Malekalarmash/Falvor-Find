@@ -4,7 +4,7 @@ import queryString from './SecretKey';
 import { useSelector } from 'react-redux';
 import { Button } from '@mantine/core';
 import { useDispatch } from 'react-redux';
-import { setRecipes } from '../redux/actions';
+import { setPrice, setRecipes } from '../redux/actions';
 
 
 function Search({ setReceipes }) {
@@ -12,6 +12,7 @@ function Search({ setReceipes }) {
     const filterOptions = useSelector((state) => {
         return state.recipeFilter
     })
+    console.log(filterOptions)
     const dispatch = useDispatch()
     const handleClik = async (e, searchWord) => {
         e.preventDefault();
@@ -23,15 +24,16 @@ function Search({ setReceipes }) {
                 // Stores the object into the variable called data
                 .then(data => {
                     let recipes = {
-                        recipe: data.hits,
+                        recipe: { data: data.hits, price: Math.floor(Math.random() * 7) + 9 },
                         image: data.images,
                         source: data.source,
                         url: data.url,
                         ingredients: data.ingredients,
-                        price: Math.floor(Math.random() * 7) + 9
+
                     }
                     dispatch(setRecipes(data.hits))
                     setReceipes(data.hits);
+                    dispatch(setPrice(recipes.recipe.price))
                     console.log(data.hits)
                     return recipes
                 })

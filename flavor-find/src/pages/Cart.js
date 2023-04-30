@@ -11,6 +11,7 @@ export default function Cart() {
     const addedToCart = useSelector((state) => {
         return state.recipeFilter.cart
     })
+
     console.log(addedToCart)
 
     return (

@@ -7,6 +7,7 @@ import filterOptions from './Search'
 import { setRecipes } from '../redux/actions';
 function Body() {
     const [recipes, setReceipes] = useState([])
+
     console.log("Recipe", recipes)
     return (
         <div className=''>
@@ -15,6 +16,7 @@ function Body() {
             <Grid>
                 {recipes.map((recipe) => (
                     <Grid.Col span={3}>
+
                         <RecipeCard recipe={recipe.recipe} />
                     </Grid.Col>
                 ))}

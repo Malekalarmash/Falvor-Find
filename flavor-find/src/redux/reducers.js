@@ -35,6 +35,7 @@ export function recipeFilter(state = initialState, action) {
                 ...state,
                 price: [...state.price, action.payload]
 
+
             }
         case 'SET_FAVORIT':
             return {
