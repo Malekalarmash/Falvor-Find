@@ -20,16 +20,17 @@ export default function Cart() {
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Quantity</th>
                         <th>Price</th>
+                        <th>Quantity</th>
+
                     </tr>
-                    {
-                        addedToCart.map((recipe) => <CartTable
-
-                            recipe={recipe} />)
-
-                    }
                 </thead>
+                {
+                    addedToCart.map((recipe) => <CartTable
+
+                        recipe={recipe} />)
+
+                }
 
             </Table>
             }
