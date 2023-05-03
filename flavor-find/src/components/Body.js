@@ -5,13 +5,15 @@ import Search from './Search';
 import Filter from './Filter';
 import filterOptions from './Search'
 import { setRecipes } from '../redux/actions';
+import { useSelector } from 'react-redux';
 function Body() {
-    const [recipes, setReceipes] = useState([])
-
+    const recipes = useSelector((state) => {
+        return state.recipeFilter.recipes
+    })
     console.log("Recipe", recipes)
     return (
         <div className=''>
-            <Search setReceipes={setReceipes} />
+            <Search />
             <Filter />
             <Grid>
                 {recipes.map((recipe) => (

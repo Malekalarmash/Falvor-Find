@@ -13,6 +13,10 @@ import {
   Route, Routes
 } from 'react-router-dom'
 import Card_Details from '../pages/Card_Details';
+import CheckoutPage from '../pages/CheckoutPage'
+import StripeContainer from './StripeContainer';
+
+
 
 function App() {
   return (
@@ -30,8 +34,10 @@ function App() {
 
           </Route>
           <Route path="/Card_Details" element={<Card_Details />} exact>
-
           </Route>
+          <Route path="/Checkout" element={<CheckoutPage />} exact>
+          </Route>
+
         </Routes>
 
 

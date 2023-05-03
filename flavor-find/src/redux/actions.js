@@ -38,10 +38,10 @@ export function setPrice(price) {
         payload: price
     }
 }
-export function IsClicked(IsClicked) {
+export function clickedCard(clickedCard) {
     return {
-        type: 'IS_CLICKED',
-        payload: IsClicked
+        type: 'CLICKED_CARD',
+        payload: clickedCard
     }
 }
 

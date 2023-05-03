@@ -8,8 +8,8 @@ const initialState = {
     recipes: [],
     favorit: [],
     cart: [],
-    price: [],
-    IsClicked: false
+    price: 0,
+    clickedCard: []
 };
 
 export function recipeFilter(state = initialState, action) {
@@ -33,8 +33,7 @@ export function recipeFilter(state = initialState, action) {
         case 'SET_PRICE':
             return {
                 ...state,
-                price: [...state.price, action.payload]
-
+                price: state.price + parseFloat(action.payload)
 
             }
         case 'SET_FAVORIT':
@@ -49,10 +48,10 @@ export function recipeFilter(state = initialState, action) {
                 cart: [...state.cart, action.payload]
 
             }
-        case 'IS_CLICKED':
+        case 'CLICKED_CARD':
             return {
                 ...state,
-                IsClicked: action.payload,
+                clickedCard: [action.payload]
             }
 
 
