@@ -17,7 +17,7 @@ function Body() {
             <Filter />
             <Grid>
                 {recipes.map((recipe) => (
-                    <Grid.Col span={3}>
+                    <Grid.Col md={2} lg={4} >
 
                         <RecipeCard recipe={recipe.recipe} />
                     </Grid.Col>

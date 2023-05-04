@@ -9,25 +9,22 @@ export default function CartTable({ recipe }) {
     const price = Math.floor(recipe.calories / 100)
 
     const elements = [
-        { position: recipe.label, price: price, symbol: '', name: '' }
+        { position: recipe.label, price: price, symbol: '', name: '', img: recipe.image }
     ];
 
     console.log(elements)
     const rows = elements.map((element) => (
         <tr key={element.name}>
+            <td><img width={100} src={element.img}></img></td>
             <td>{element.position}</td>
-            <td>{element.price}</td>
-            <td>{element.quantity}</td>
+            <td>${element.price}</td>
 
-        </tr>
+        </tr >
     ));
     return (
         <>
-            <tbody>
-                {rows}
-                {/* <p>{totalCumulativePrice}</p> */}
+            {rows}
 
-            </tbody>
 
         </>
 

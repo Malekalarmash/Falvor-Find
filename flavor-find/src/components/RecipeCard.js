@@ -13,7 +13,7 @@ export default function RecipeCard({ recipe }) {
     const price = Math.floor(recipe.calories / 100)
 
     return (
-        <Card margin="20px" shadow="sm" padding="sm" radius="sm" withBorder >
+        <Card className='flex-g' margin="20px" shadow="sm" padding="sm" radius="sm" withBorder >
             <Card.Section component="a" >
                 <Link to="/Card_Details">
                     <Image

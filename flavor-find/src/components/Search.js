@@ -3,6 +3,7 @@ import { useState } from 'react';
 import queryString from './SecretKey';
 import { useSelector } from 'react-redux';
 import { Button } from '@mantine/core';
+import { useForm } from '@mantine/form';
 import { useDispatch } from 'react-redux';
 import { setPrice, setRecipes } from '../redux/actions';
 
@@ -44,10 +45,10 @@ function Search({ setReceipes }) {
     }
 
     return (
-        <div>
+        <div className='flex flex-col lg:flex-row mb-4'>
 
             <input onChange={(event) => setInput(event.target.value)} class="placeholder:italic placeholder:text-slate-400 block sm-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Search for anything..." type="text" name="search" />
-            <Button type='submit' onClick={(event) => handleClik(event, input)}>Search for Recipe</Button>
+            <Button className='ml-3' variant="light" onClick={(event) => handleClik(event, input)}>Search for Recipe</Button>
 
 
         </div>

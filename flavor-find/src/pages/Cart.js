@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import RecipeCard from '../components/RecipeCard'
-import { Grid, Table } from '@mantine/core';
+import { Burger, Button, Grid, Table } from '@mantine/core';
 import CartTable from '../components/CartTable'
 import StripeContainer from '../components/StripeContainer'
 import price from '../components/CartTable'
@@ -18,8 +18,9 @@ export default function Cart() {
         return state.recipeFilter.price
     }
     )
-    // const sum = totalPrice.reduce((partialSum, a) => partialSum + a, 0);
-    // console.log(sum);
+    const [showItem, setShowItem] = useState(false)
+
+
 
 
     console.log(addedToCart)
@@ -30,28 +31,43 @@ export default function Cart() {
             {<Table>
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Name</th>
                         <th>Price</th>
                     </tr>
                 </thead>
-                {
-                    addedToCart.map((recipe) => <CartTable
+                <tbody>
 
-                        recipe={recipe} />)
+                    {
+                        addedToCart.map((recipe) => <CartTable
 
-                }
-                {totalPrice}
+                            recipe={recipe} />)
+
+                    }
+                    <tr className='font-bold' >
+                        <td></td>
+                        <td>Total</td>
+                        <td>${totalPrice}
+                        </td>
+
+                    </tr>
+                </tbody>
 
             </Table>
             }
-            <NavLink to="/Checkout">
-                <button to="/Checkout">Checkout</button>
+            <>
+                {showItem ? <StripeContainer />
+                    : <>
+                        <h3>{totalPrice}</h3>
+                        <Button variant="light" onClick={() => setShowItem(true)}> Pay Now
+                        </Button>
+                    </>}
 
-            </NavLink>
-
-
-
-
+            </>
         </div>
+
+
+
+
     )
 }

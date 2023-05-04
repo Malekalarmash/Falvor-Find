@@ -16,13 +16,13 @@ export default function Filter() {
 
 
     return (
-        <div>
 
-            <form>
-                <Checkbox onChange={() => dispatch(setVegan(true))} label="Vegan" />
-                <Checkbox onChange={() => dispatch(setGlutenFree(true))} label="Gluten-Free" />
-            </form>
 
-        </div>
+        <form className='flex mb-5'>
+            <Checkbox className='mr-5' onChange={() => dispatch(setVegan(true))} label="Vegan" />
+            <Checkbox onChange={() => dispatch(setGlutenFree(true))} label="Gluten-Free" />
+        </form>
+
+
     )
 }

@@ -16,9 +16,11 @@ export default function Favorit() {
         <div>
             <Grid>
                 {
-                    favoritItems.map((recipe) => <Grid.Col span={3}> <RecipeCard
-
-                        recipe={recipe} /></Grid.Col>)
+                    favoritItems.map((recipe) =>
+                        <Grid.Col md={2} lg={4} >
+                            <RecipeCard recipe={recipe} />
+                        </Grid.Col>
+                    )
                 }
             </Grid>
         </div>
