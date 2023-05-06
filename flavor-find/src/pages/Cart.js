@@ -9,6 +9,8 @@ import price from '../components/CartTable'
 import CheckoutPage from './CheckoutPage';
 import { NavLink } from 'react-router-dom'
 import '../Header.css'
+import DeleteCart from '../components/DeleteCart';
+import SuccessMessage from '../components/SuccessMessage';
 
 export default function Cart() {
     const addedToCart = useSelector((state) => {
@@ -23,7 +25,7 @@ export default function Cart() {
 
 
 
-    console.log(addedToCart)
+    console.log("In the cart", addedToCart)
 
     return (
         <div>
@@ -47,8 +49,10 @@ export default function Cart() {
                     <tr className='font-bold' >
                         <td></td>
                         <td>Total</td>
-                        <td>${totalPrice}
-                        </td>
+                        <td>{addedToCart.length === 0 ? 0
+                            : totalPrice
+                        }</td>
+                        <td><DeleteCart /></td>
 
                     </tr>
                 </tbody>
@@ -56,11 +60,12 @@ export default function Cart() {
             </Table>
             }
             <>
-                {showItem ? <StripeContainer />
+                {(showItem) && (addedToCart.length > 0) ? <StripeContainer />
                     : <>
-                        <h3>{totalPrice}</h3>
+
                         <Button variant="light" onClick={() => setShowItem(true)}> Pay Now
                         </Button>
+
                     </>}
 
             </>

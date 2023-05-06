@@ -48,6 +48,12 @@ export function recipeFilter(state = initialState, action) {
                 cart: [...state.cart, action.payload]
 
             }
+        case 'CLEAR_CART':
+            return {
+                ...state,
+                cart: []
+
+            }
         case 'CLICKED_CARD':
             return {
                 ...state,

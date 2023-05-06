@@ -1,4 +1,3 @@
-import favorit from "../pages/Favorit"
 
 export function setVegan(isVegan) {
     return {
@@ -42,6 +41,12 @@ export function clickedCard(clickedCard) {
     return {
         type: 'CLICKED_CARD',
         payload: clickedCard
+    }
+}
+export function clearCart(cart) {
+    return {
+        type: 'CLEAR_CART',
+        payload: cart
     }
 }
 

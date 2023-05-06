@@ -11,12 +11,27 @@ export default function CheckoutPage() {
         return state.recipeFilter.price
     }
     )
+    const addedToCart = useSelector((state) => {
+        return state.recipeFilter.cart
+    }
+    )
     console.log('In the Checkout Page')
     return (
+        <>
 
-        showItem ? <StripeContainer /> : <> <h3>{totalPrice}</h3>
-            <button onClick={() => setShowItem(true)}> Pay Now
-            </button></>
+            {
+                showItem ? <StripeContainer />
+                    : <> <h3>{totalPrice}</h3>
+                        <button onClick={() => setShowItem(true)}> Pay Now
+                        </button></>
+            }
+
+
+        </>
+
+
 
     )
+
+
 }

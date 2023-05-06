@@ -3,7 +3,10 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js"
 import axios from "axios"
 import React, { useState } from 'react'
 import price from './CartTable'
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { Card } from "@mantine/core"
+import { clearCart } from "../redux/actions"
+import SuccessMessage from "./SuccessMessage"
 
 
 const CARD_OPTIONS = {
@@ -34,6 +37,12 @@ export default function PaymentForm() {
         return state.recipeFilter.price
     }
     )
+    const addedToCart = useSelector((state) => {
+        return state.recipeFilter.cart
+    }
+    )
+    const dispatch = useDispatch()
+
 
 
     const handleSubmit = async (e) => {
@@ -56,6 +65,11 @@ export default function PaymentForm() {
                     console.log("Successful payment")
                     setSuccess(true)
                 }
+                if (addedToCart.length === 0) {
+                    console.log("Add something to your cart")
+                    setSuccess(false)
+                    console.log("Error", error)
+                }
 
             } catch (error) {
                 console.log("Error", error)
@@ -68,7 +82,8 @@ export default function PaymentForm() {
     return (
         <>
             {!success ?
-                <form onSubmit={handleSubmit}>
+
+                <form onSubmit={handleSubmit} className="flex-col mt-20">
                     <fieldset className="FormGroup">
                         <div className="FormRow">
                             <CardElement options={CARD_OPTIONS} />
@@ -77,10 +92,15 @@ export default function PaymentForm() {
                     <button>Pay</button>
                 </form>
                 :
-                <div>
-                    <h2>Payment was Successful!</h2>
-                </div>
+                <SuccessMessage />
+
+
+
             }
+
+
+
+
 
         </>
     )

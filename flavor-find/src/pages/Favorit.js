@@ -4,12 +4,14 @@ import filterOptions from '../components/Search'
 import { useSelector } from 'react-redux'
 import RecipeCard from '../components/RecipeCard'
 import { Grid } from '@mantine/core';
+import { setFavorit } from '../redux/actions'
 
 
-export default function Favorit() {
+export default function Favorit(props) {
     const favoritItems = useSelector((state) => {
         return state.recipeFilter.favorit
     })
+
     console.log(favoritItems)
 
     return (
