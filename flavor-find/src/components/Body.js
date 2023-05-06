@@ -24,7 +24,6 @@ function Body() {
                     </Grid.Col>
                 ))}
             </Grid>
-            <Footer />
         </div>
     )
 }
