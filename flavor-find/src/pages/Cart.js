@@ -50,7 +50,7 @@ export default function Cart() {
                         <td></td>
                         <td>Total</td>
                         <td>{addedToCart.length === 0 ? 0
-                            : totalPrice
+                            : "$" + totalPrice
                         }</td>
                         <td><DeleteCart /></td>
 

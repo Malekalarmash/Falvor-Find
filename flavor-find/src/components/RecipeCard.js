@@ -57,9 +57,6 @@ export default function RecipeCard({ recipe }, props) {
 
             }
 
-
-
-
             <Button onClick={() => {
                 dispatch(addedToCart(recipe))
                 dispatch(setPrice(price))

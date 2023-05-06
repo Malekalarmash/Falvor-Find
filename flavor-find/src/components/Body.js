@@ -6,13 +6,14 @@ import Filter from './Filter';
 import filterOptions from './Search'
 import { setRecipes } from '../redux/actions';
 import { useSelector } from 'react-redux';
+import Footer from './Footer';
 function Body() {
     const recipes = useSelector((state) => {
         return state.recipeFilter.recipes
     })
     console.log("Recipe", recipes)
     return (
-        <div className=''>
+        <div >
             <Search />
             <Filter />
             <Grid>
@@ -23,6 +24,7 @@ function Body() {
                     </Grid.Col>
                 ))}
             </Grid>
+            <Footer />
         </div>
     )
 }
